@@ -18,24 +18,20 @@ USE `jdbcproject`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `eleves`
+-- Table structure for table `ticket`
 --
 
-DROP TABLE IF EXISTS `eleves`;
+DROP TABLE IF EXISTS `ticket`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `eleves` (
-  `id_eleves` int NOT NULL,
-  `prenom` varchar(45) NOT NULL,
-  `nom` varchar(45) NOT NULL,
-  `motDePasse` varchar(45) NOT NULL,
-  `dateDeNaissance` date NOT NULL,
-  `genie` varchar(45) NOT NULL,
-  `solde` float DEFAULT '0',
-  `panier_id` int DEFAULT NULL,
-  `photoPersonel` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id_eleves`),
-  KEY `panier_id_idx` (`panier_id`)
+CREATE TABLE `ticket` (
+  `ticket_id` int NOT NULL,
+  `nom_menu` varchar(45) DEFAULT NULL,
+  `repas` varchar(45) DEFAULT NULL,
+  `description` varchar(500) DEFAULT NULL,
+  `photo_menu` varchar(500) DEFAULT NULL,
+  `date_consomation` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`ticket_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

@@ -18,24 +18,20 @@ USE `jdbcproject`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `eleves`
+-- Table structure for table `paniers`
 --
 
-DROP TABLE IF EXISTS `eleves`;
+DROP TABLE IF EXISTS `paniers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `eleves` (
-  `id_eleves` int NOT NULL,
-  `prenom` varchar(45) NOT NULL,
-  `nom` varchar(45) NOT NULL,
-  `motDePasse` varchar(45) NOT NULL,
-  `dateDeNaissance` date NOT NULL,
-  `genie` varchar(45) NOT NULL,
-  `solde` float DEFAULT '0',
-  `panier_id` int DEFAULT NULL,
-  `photoPersonel` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id_eleves`),
-  KEY `panier_id_idx` (`panier_id`)
+CREATE TABLE `paniers` (
+  `panier_id` int NOT NULL,
+  `ticket_id` int NOT NULL,
+  `ticket_number` int NOT NULL,
+  PRIMARY KEY (`panier_id`,`ticket_id`,`ticket_number`),
+  KEY `ticket_id_idx` (`ticket_id`),
+  CONSTRAINT `panier_id` FOREIGN KEY (`panier_id`) REFERENCES `eleves` (`panier_id`),
+  CONSTRAINT `ticket_id` FOREIGN KEY (`ticket_id`) REFERENCES `ticket` (`ticket_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
